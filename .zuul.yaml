@@ -1,6 +1,8 @@
 - pipeline:
     name: check
-    post-review: true
+    description: |
+      Newly opened pull requests enter this pipeline to receive an
+      initial verification
     manager: independent
     trigger:
       github:
@@ -8,29 +10,17 @@
           action:
             - opened
             - changed
+            - reopened
         - event: pull_request
-          action:
-            - comment
-          comment:
-            - '^recheck.*$'
-    success:
-      github:
-        comment: true
-        status: success
-    failure:
-      github:
-        comment: true
-        status: failure
-    merge-failure:
-      github:
-        comment: true
-        status: failure
+          action: comment
+          comment: (?i)^\s*recheck\s*$
     start:
       github:
-        comment: true
         status: pending
-    disabled:
+        comment: false
+    success:
       github:
-        comment: true
-
-
+        status: 'success'
+    failure:
+      github:
+        status: 'failure'
