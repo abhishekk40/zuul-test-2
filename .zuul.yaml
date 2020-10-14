@@ -33,9 +33,4 @@
       github:
         comment: true
 
-- project:
-    name: abhishekk40/zuul-test-2
-    check:
-      jobs:
-        - noop
 
