@@ -24,3 +24,10 @@
     failure:
       github:
         status: 'failure'
+        
+        
+- project:
+    name: abhishekk40/zuul-test-1
+    check:
+      jobs:
+        - noop
