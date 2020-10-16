@@ -27,7 +27,7 @@
         
         
 - project:
-    name: abhishekk40/zuul-test-1
+    name: abhishekk40/zuul-test-2
     check:
       jobs:
         - noop
